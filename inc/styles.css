@@ -112,7 +112,7 @@ form{
 
 select,
 input[type=text]{
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	width:100%;
 }
 
@@ -135,6 +135,10 @@ select {
 	display: flex;
 }
 
+.halves {
+	display: flex;
+}
+
 .thirds select{
 }
 
@@ -148,7 +152,7 @@ p.disclaimer{
 .btn-submit{
 	display: block;
 	text-align: center;
-	margin: 20px auto;
+	margin: 10px auto;
 	font-size: 1.5em;
 	line-height: 3;
 	color: #fff;
@@ -307,8 +311,7 @@ Decline
 }
 
 #decline .heading{
-	padding: 10px;
-	overflow: hidden;
+	margin-bottom: 20px;
 }
 
 #decline .heading h1{
@@ -327,13 +330,17 @@ Decline
 Page4 and Page5
 
 =======================================*/
-.page4{
-	margin: 20px;
+.page4 .heading{
+	padding: 20px 20px;
+	text-transform: none;
 }
 
-.page4 form{
-	padding: 0;
-	margin: 0;
+.page4 .heading h3 {
+	margin: 5px;
+}
+
+.page4 .heading p {
+	margin: 10px;
 }
 
 .secure{
@@ -369,7 +376,7 @@ Page4 and Page5
 	display: block;
 	background: #2d2d2d; /* Old browsers */
 	font-size: 1em;
-	margin: 40px auto;
+	margin: 20px auto;
 	clear: both;
 	color: #fff;
 	border: none;
