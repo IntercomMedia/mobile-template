@@ -6,6 +6,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
         <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" />
+    <style>
+		.heading::after,
+		.main-color-bg {
+			background-color: #118549; /* variable for main color */
+		}
+		
+		.icon-svg {
+			stroke : #118549;/* variable for main color */
+			fill:none;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+			stroke-width:1.44px;
+		}
+		
+		a,
+		.main-color-font {
+			color: #118549; /* variable for main color */
+		}
+	</style>
 	<script type="text/javascript" src="/inc/common.js"></script>
 	<script type="text/javascript" src="/inc/php.min.js"></script>
 	<script type="text/javascript" src="/inc/validate.php?p=2"></script>
@@ -156,9 +175,6 @@
 </header>
 <div class="heading">
 	<h1>We have these cash sources for you</h1>
-	<div class="arrow">
-		<img src="img/arrow.png" />
-	</div>
 </div>
 <h4>Compare the options below to find the cash for your needs or accept multiple options if you need more cash.</h4>
 <h4>Or call us NOW at 1-844-621-1844!</h4>
@@ -171,19 +187,44 @@
 	<li><a target="_new" href="/gateway-3/?&affId=&opt=&subc1=&subc2=&subc3=&uId=&emId=&lvl=&grp=&try=3&affIDC="><span>Option 5</span>Click here for option #5</a></li>
 </ul>
 <div class="info decline">
+	<!--#2-->
 	<div class="steps">
-		<img src="img/compIcon.png" /><h3>1. Easy Short Form</h3>
-		<p>Complete our form online and we will search 100s of Lenders to locate the best match for you!</p>
+		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 128">
+			<path class="icon-svg" d="M41.25,40.09h0a8.37,8.37,0,0,1,11.49,2.7L64.46,61.73a8.32,8.32,0,0,1,3.76-5.35h0A8.37,8.37,0,0,1,79,58.11a8.35,8.35,0,0,1,3.93-6.51h0a8.37,8.37,0,0,1,10.78,1.73,8.35,8.35,0,0,1,3.93-6.51h0c3.9-2.42,9.28-1.32,11.49,2.7l16.22,29.62c13.19,24.08-12.27,55-37.86,43L43.09,101.17a8.37,8.37,0,0,1-4-11.11c3.87-2.4,12.21-3.47,16.39-1.5l8.41,4L38.55,51.58a8.37,8.37,0,0,1,2.7-11.49h0Z"/><path class="icon-svg" d="M36.45,68.58A24.23,24.23,0,1,1,68.46,42"/><path class="icon-svg" d="M26.68,84.07A42.39,42.39,0,1,1,85.44,34.76"/>
+		</svg>
+		<div class="steps-copy">
+			<h3>1. Easy Short Form</h3>
+			<p>Complete our form online and we will search 100s of Lenders to locate the best match for you!</p>
+		</div>
 	</div>
 	<div class="steps">
-		<img src="img/checkIcon.png" /><h3>2. Accept Loan</h3>
-		<p>Once matched, we send you to the Lender's signature page where you will agree to the repayment terms.</p>
+		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 128">
+			<polyline class="icon-svg" points="76.04 33.84 96.18 57.17 124.66 13.64"/><line class="icon-svg" x1="58.79" y1="36.04" x2="58.79" y2="43.72"/>
+			<line class="icon-svg" x1="58.79" y1="77.22" x2="58.79" y2="84.9"/>
+			<path class="icon-svg" d="M69.92,47.73A50.18,50.18,0,0,0,60,45.08c-17.25-1.94-19.47,15.44-1.1,15.39,17.85-.06,16.17,17.34-1.13,15.39a50.27,50.27,0,0,1-9.91-2.64"/>
+			<path class="icon-svg" d="M97.14,77.71v38.7a9.94,9.94,0,0,1-9.9,9.9h-57a9.93,9.93,0,0,1-9.9-9.9V11.59a9.93,9.93,0,0,1,9.9-9.9h57c4.27,0,11,1.42,10.76,9.71l-0.18,5.22M52.5,113.3H65M22,101.46h73M23.23,16.22h73"/>
+			</svg>
+		<div class="steps-copy">
+			<h3>2. Accept Loan</h3>
+			<p>Once matched, we send you to the Lender's signature page where you will agree to the repayment terms.</p>
+		</div>
 	</div>
 	<div class="steps">
-		<img src="img/cashIcon.png" /><h3>3. Get Your Cash</h3>
-		<p>Once approved, money will be automatically deposited to your bank account. It's that easy!</p>
+		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 128">
+			<polyline class="icon-svg" points="33.06 24.93 33.06 127.16 97.94 127.16 97.94 24.93"/>
+			<path class="icon-svg" d="M86.61,65c0-8.74-9.45-15.84-21.11-15.84S44.39,56.22,44.39,65,53.84,80.8,65.5,80.8,86.61,73.71,86.61,65h0Z"/><path class="icon-svg" d="M95.08,104.5A19.53,19.53,0,0,0,75.55,124"/>
+			<path class="icon-svg" d="M35.92,104.5A19.53,19.53,0,0,1,55.45,124"/>
+			<path class="icon-svg" d="M69.59,96.67a4.09,4.09,0,1,0-4.09,4.09,4.09,4.09,0,0,0,4.09-4.09h0Z"/>
+			<path class="icon-svg" d="M69.59,33.31A4.09,4.09,0,1,0,65.5,37.4a4.1,4.1,0,0,0,4.09-4.09h0Z"/>
+			<path class="icon-svg" d="M98.43,41.19h10.09a4.06,4.06,0,0,0,4-4v-8.6a4.07,4.07,0,0,0-4-4h-86a4.08,4.08,0,0,0-4,4v8.6a4.07,4.07,0,0,0,4,4H32.56"/>
+			<path class="icon-svg" d="M32.56,62.3H7.4a5.28,5.28,0,0,1-5.22-5.22v-51A5.24,5.24,0,0,1,7.4.84H123.6a5.28,5.28,0,0,1,5.22,5.22v51a5.32,5.32,0,0,1-5.22,5.22H98.43"/>
+		</svg>
+		<div class="steps-copy">
+			<h3>3. Get Your Cash</h3>
+			<p>Once approved, money will be automatically deposited to your bank account. It's that easy!</p>
+		</div>
 	</div>
-	<h2>Your Online Payday Loan Center</h2>
+	<!--/#4-->	<h2>Your Online Payday Loan Center</h2>
 	<p><strong>Online-PayDay-Direct.net</strong> handles all your unexpected events. By completing our online form you can qualify for a loan from $100 to $1,000 with no credit required. Our simple online qualifications process helps thousands of people get cash they need online. <strong>Online-PayDay-Direct.net's</strong> large database of lenders offers the cash you need. Pay off the lender based on loan terms. Our online form only takes minutes to complete.</p>
 </div>
 <div class="finePrint">
