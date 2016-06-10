@@ -45,7 +45,6 @@ header{
 	position: relative;
 	color: #fff;
 	position: relative;
-	text-transform: uppercase;
 	background: #333 !important; /* Old browsers */
 	padding: 20px 0;
 	text-align: center;
@@ -347,11 +346,21 @@ Page4 and Page5
 .page4 header{
 	padding: 0;
 }
+
+.page4 header img {
+	height: 30px;
+}
+
+
 .page4 .heading{
-	padding: 10px;
+	padding: 5px ;
 	text-transform: none;
 }
 
+.page4 .heading::after {
+	content: none;
+	display: none;
+}
 .page4 .heading h3 {
 	margin: 5px;
 }
@@ -363,6 +372,7 @@ Page4 and Page5
 .page4 select,
 .page4 input[type="text"] {
 	height: 30px;
+	margin: 5px;
 }
 
 .secure{
@@ -453,23 +463,6 @@ Loading
 Portrait and Landscape Styling
 
 =======================================*/
-
-body.portrait h1 span{
-	font-size: 1.35em;
-	color: #fff;
-}
-
-body.landscape h1{
-	font-size: .8em;
-}
-
-body.landscape h4{
-	font-size: .5em;
-}
-
-body.landscape h1 span{
-	color: #fff;
-}
 
 body.landscape form p,
 body.landscape select{
