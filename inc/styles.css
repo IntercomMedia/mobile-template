@@ -126,7 +126,7 @@ input[type=text]{
 }
 
 select {
-	background: none;
+	background: #fff;
 	height: 40px;
 	border: 1px solid #cccccc;
 }
@@ -462,7 +462,7 @@ body.landscape form p.disclaimer{
 }
 
 body.landscape input[type=text]{
-	width:39%;
+	width:49%;
 }
 
 body.landscape .finePrint{
