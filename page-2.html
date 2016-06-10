@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Online-PayDay-Direct.net</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
+        <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" />
+	<script type="text/javascript" src="/inc/common.js"></script>
+	<script type="text/javascript" src="/inc/php.min.js"></script>
+	<script type="text/javascript" src="/inc/validate.php?p=2"></script>
+	<script type="text/javascript" charset="utf-8">
+		function date_time(id) {
+			date = new Date;
+			year = date.getFullYear();
+			month = date.getMonth();
+			d = date.getDate();
+			day = date.getDay();
+			days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+			h = date.getHours();
+			if(h<10){
+				h = "0"+h;
+			}
+			if(h >= 12) {
+				h = h - 12;
+			} else {
+				h = h;
+				add = " a.m.";
+			}
+
+			if (h <= 12) {
+				add = " p.m.";
+			}
+			if (h == 00) {
+				h = "12";
+			}
+
+			m = date.getMinutes();
+			if(m<10) {
+				m = "0"+m;
+			}
+			s = date.getSeconds();
+			if(s<10) {
+				s = "0"+s;
+			}
+			result = '<span class="date">'+month+'/'+d+'/'+year+' </span><span class="time"> '+h+':'+m+':'+s + ' ' + add + '</span>';
+			document.getElementById(id).innerHTML = result;
+			setTimeout('date_time("'+id+'");','1000');
+			return true;
+		}
+
+		window.onload = function(){
+			orientationSwitch();
+			/*retina image replacement script */
+			var root = (typeof exports == 'undefined' ? window : exports);
+
+			function RetinaImagePath(path) {
+				this.path = path;
+				this.at_2x_path = path.replace(/\.\w+$/, function(match) { return "@2x" + match; });
+			}
+
+			root.RetinaImagePath = RetinaImagePath;
+			RetinaImagePath.confirmed_paths = [];
+
+			RetinaImagePath.prototype.is_external = function() {
+				return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) )
+			}
+
+			RetinaImagePath.prototype.check_2x_variant = function(callback) {
+				var http, that = this;
+				if (this.is_external()) {
+					return callback(false);
+				} else if (this.at_2x_path in RetinaImagePath.confirmed_paths) {
+					return callback(true);
+				} else {
+					http = new XMLHttpRequest;
+					http.open('HEAD', this.at_2x_path);
+					http.onreadystatechange = function() {
+						if (http.readyState != 4) {
+							return callback(false);
+						}
+
+						if (http.status >= 200 && http.status <= 399) {
+							RetinaImagePath.confirmed_paths.push(that.at_2x_path);
+							return callback(true);
+						} else {
+							return callback(false);
+						}
+					}
+					http.send();
+				}
+			}
+
+			function RetinaImage(el) {
+				this.el = el;
+				this.path = new RetinaImagePath(this.el.getAttribute('src'));
+				var that = this;
+				this.path.check_2x_variant(function(hasVariant) {
+					if (hasVariant) that.swap();
+				});
+			}
+
+			root.RetinaImage = RetinaImage;
+
+			RetinaImage.prototype.swap = function(path) {
+				if (typeof path == 'undefined') path = this.path.at_2x_path;
+				var that = this;
+				function load() {
+					if (! that.el.complete) {
+						setTimeout(load, 5);
+					} else {
+						that.el.setAttribute('width', that.el.offsetWidth);
+						that.el.setAttribute('height', that.el.offsetHeight);
+						that.el.setAttribute('src', path);
+					}
+				}
+				load();
+			}
+
+			if (root.devicePixelRatio > 1) {
+				var images = document.getElementsByTagName("img"), retinaImages = [], i, image;
+				for (i = 0; i < images.length; i++) {
+					image = images[i];
+					retinaImages.push(new RetinaImage(image));
+				}
+			}
+		}
+
+		window.onorientationchange = function(){
+			orientationSwitch();
+		}
+
+		function orientationSwitch() {
+			/*window.orientation returns a value that indicates whether iPhone is in portrait mode, landscape mode with the screen turned to the left, or landscape mode with the screen turned to the right. */
+			var orientation = window.orientation;
+			switch(orientation) {
+				case 0:
+				/* If in portrait mode, sets the body's class attribute to portrait. Consequently, all style definitions matching the body[class="portrait"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+					document.body.setAttribute("class","portrait");
+					break; 
+				case 90:
+				/* If in landscape mode with the screen turned to the left, sets the body's class attribute to landscapeLeft. In this case, all style definitions matching the body[class="landscapeLeft"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+					document.body.setAttribute("class","landscape");
+					break;
+				case -90: 
+					/* If in landscape mode with the screen turned to the right, sets the body's class attribute to landscapeRight. Here, all style definitions matching the body[class="landscapeRight"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+					document.body.setAttribute("class","landscape");
+					break;
+			}
+		}
+	</script>
+</head>
+<body>
+<header>
+	<img src="img/logo_mobile.png" />
+</header>
+<header>
+	<ul class="tabs">
+		<li class="active">General</li>
+	</ul>
+</header>
+<div class="heading">
+	<h1>Welcome, John Figa</h1>
+	<h4>Complete the information below to request your cash</h4>
+	<div class="arrow">
+		<img src="img/arrow.png" />
+	</div>
+</div>
+<form name="formOffer" id="formOffer" method="post" onsubmit="return validateForm(18, '')" action="/gateway-2/">
+<select id="amt" name="amt" onChange="promptAmt(document.formOffer.amt.options[document.formOffer.amt.selectedIndex].value)">
+	<option value="">Desired loan amount</option>
+	<option value="100">$100</option>
+<option value="200">$200</option>
+<option value="300" selected="selected">$300</option>
+<option value="400">$400</option>
+<option value="500">$500+</option>
+
+</select>
+<input type="text" name="address1" value="" placeholder="Street Address"/>
+<input type="text" name="city" value="" placeholder="City"/>
+<select id="state" name="state">
+	<option value="">State</option>
+	<option value="AL">AL</option>
+<option value="AR">AR</option>
+<option value="AZ">AZ</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DC">DC</option>
+<option value="DE">DE</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="IA">IA</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="MA">MA</option>
+<option value="MD">MD</option>
+<option value="ME">ME</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MO">MO</option>
+<option value="MS">MS</option>
+<option value="MT">MT</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="NE">NE</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NV">NV</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WI">WI</option>
+<option value="WY">WY</option>
+
+</select>
+<input type="text" name="zip" value="10023" placeholder="Zip"/>
+<p>
+	<strong>Do you own or rent?</strong><br/>
+	<nobr><label><input type="radio" name="own_home" value="rent" /> rent</label>
+<label><input type="radio" name="own_home" value="own" checked="checked" /> own</label></nobr>
+</p>
+<select id="home_lengthM" name="home_lengthM">
+	<option value="">Time at Residence</option>
+	<option value="108">9+ Years</option>
+<option value="96">8 Years</option>
+<option value="84">7 Years</option>
+<option value="72">6 Years</option>
+<option value="60" selected="selected">5 Years</option>
+<option value="48">4 Years</option>
+<option value="36">3 Years</option>
+<option value="24">2 Years</option>
+<option value="12">1 Year or less</option>
+
+</select>
+<div class="thirds">
+	<input type="text" name="ph1" value="212" placeholder="Home Phone Area Code"/>
+	<input type="text" name="ph2" value="302" placeholder="Home Phone Prefix"/>
+	<input type="text" name="ph3" value="8165" placeholder="Home Phone Suffix"/>
+</div>
+<div class="thirds">
+	<input type="text" name="wph1" value="" placeholder="Mobile Area Code"/>
+	<input type="text" name="wph2" value="" placeholder="Mobile Phone Prefix"/>
+	<input type="text" name="wph3" value="" placeholder="Mobile Suffix"/>
+</div>
+<select id="besttime" name="best_contact">
+	<option value="">Best Time to Contact You</option>
+	<option value="1" selected="selected">Morning At Home</option>
+<option value="2">Morning At Work</option>
+<option value="4">Afternoon At Home</option>
+<option value="8">Afternoon At Work</option>
+<option value="16">Evening At Home</option>
+<option value="32">Evening At Work</option>
+
+</select>
+<p class="thirds">
+	<label for="dobM">DOB</label><br/>
+	<select id="dobM" name="dobM">
+		<option value="">MM</option>
+		<option value="01">Jan</option>
+<option value="02">Feb</option>
+<option value="03">Mar</option>
+<option value="04">Apr</option>
+<option value="05">May</option>
+<option value="06">Jun</option>
+<option value="07">Jul</option>
+<option value="08">Aug</option>
+<option value="09">Sep</option>
+<option value="10">Oct</option>
+<option value="11">Nov</option>
+<option value="12">Dec</option>
+
+	</select>
+	<select id="dobD" name="dobD">
+		<option value="">DD</option>
+		<option value="01">1</option>
+<option value="02">2</option>
+<option value="03">3</option>
+<option value="04">4</option>
+<option value="05">5</option>
+<option value="06">6</option>
+<option value="07">7</option>
+<option value="08">8</option>
+<option value="09">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+
+	</select>
+	<select id="dobY" name="dobY">
+		<option value="">YYYY</option>
+		<option value="1998">1998</option>
+<option value="1997">1997</option>
+<option value="1996">1996</option>
+<option value="1995">1995</option>
+<option value="1994">1994</option>
+<option value="1993">1993</option>
+<option value="1992">1992</option>
+<option value="1991">1991</option>
+<option value="1990">1990</option>
+<option value="1989">1989</option>
+<option value="1988">1988</option>
+<option value="1987">1987</option>
+<option value="1986">1986</option>
+<option value="1985">1985</option>
+<option value="1984">1984</option>
+<option value="1983">1983</option>
+<option value="1982">1982</option>
+<option value="1981">1981</option>
+<option value="1980">1980</option>
+<option value="1979">1979</option>
+<option value="1978">1978</option>
+<option value="1977">1977</option>
+<option value="1976">1976</option>
+<option value="1975">1975</option>
+<option value="1974">1974</option>
+<option value="1973">1973</option>
+<option value="1972">1972</option>
+<option value="1971">1971</option>
+<option value="1970">1970</option>
+<option value="1969">1969</option>
+<option value="1968">1968</option>
+<option value="1967">1967</option>
+<option value="1966">1966</option>
+<option value="1965">1965</option>
+<option value="1964">1964</option>
+<option value="1963">1963</option>
+<option value="1962">1962</option>
+<option value="1961">1961</option>
+<option value="1960">1960</option>
+<option value="1959">1959</option>
+<option value="1958">1958</option>
+<option value="1957">1957</option>
+<option value="1956">1956</option>
+<option value="1955">1955</option>
+<option value="1954">1954</option>
+<option value="1953">1953</option>
+<option value="1952">1952</option>
+<option value="1951">1951</option>
+<option value="1950">1950</option>
+<option value="1949">1949</option>
+<option value="1948">1948</option>
+<option value="1947">1947</option>
+<option value="1946">1946</option>
+<option value="1945">1945</option>
+<option value="1944">1944</option>
+<option value="1943">1943</option>
+<option value="1942">1942</option>
+<option value="1941">1941</option>
+<option value="1940">1940</option>
+<option value="1939">1939</option>
+<option value="1938">1938</option>
+<option value="1937">1937</option>
+<option value="1936">1936</option>
+<option value="1935">1935</option>
+<option value="1934">1934</option>
+<option value="1933">1933</option>
+<option value="1932">1932</option>
+<option value="1931">1931</option>
+<option value="1930">1930</option>
+<option value="1929">1929</option>
+<option value="1928">1928</option>
+<option value="1927">1927</option>
+<option value="1926">1926</option>
+
+	</select>
+</p>
+<div class="thirds">
+	<input type="text" name="ssn1" value="" placeholder="SSN xxx"/>
+	<input type="text" name="ssn2" value="" placeholder="SSN xx"/>
+	<input type="text" name="ssn3" value="" placeholder="SSN xxxx"/>
+</div>
+<input type="text" name="license" value="" placeholder="Driver License # or State ID"/>
+<select id="license_state" name="license_state">
+	<option value="">Issuing State</option>
+	<option value="AL">AL</option>
+<option value="AR">AR</option>
+<option value="AZ">AZ</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DC">DC</option>
+<option value="DE">DE</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="IA">IA</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="MA">MA</option>
+<option value="MD">MD</option>
+<option value="ME">ME</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MO">MO</option>
+<option value="MS">MS</option>
+<option value="MT">MT</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="NE">NE</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NV">NV</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WI">WI</option>
+<option value="WY">WY</option>
+
+</select>
+<select id="opt1" name="opt1">
+	<option value="">Own a car?</option>
+	<option value="1"> Yes</option>
+<option value="0"> No</option>
+
+</select>
+<header>
+	<ul class="tabs">
+		<li class="active">Job</li>
+	</ul>
+</header>
+<select id="emp_status" name="emp_status">
+	<option value="">Primary source of income</option>
+	<option value="2">Soc. Sec.</option>
+<option value="8">Pension</option>
+<option value="32" selected="selected">Employed</option>
+<option value="4">Disability</option>
+
+</select>
+<p>
+	<strong>Active Military?</strong><br/>
+	<nobr><label><input type="radio" name="military" value="Y" />Yes</label>
+<label><input type="radio" name="military" value="N" checked="checked" />No</label></nobr>
+</p>
+<input type="text" name="employer" value="" placeholder="Name of Employer"/>
+<input type="text" name="emp_city" value="" placeholder="City"/>
+<select id="emp_state" name="emp_state">
+	<option value="">State</option>
+	<option value="AL">AL</option>
+<option value="AR">AR</option>
+<option value="AZ">AZ</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DC">DC</option>
+<option value="DE">DE</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="IA">IA</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="MA">MA</option>
+<option value="MD">MD</option>
+<option value="ME">ME</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MO">MO</option>
+<option value="MS">MS</option>
+<option value="MT">MT</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="NE">NE</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NV">NV</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WI">WI</option>
+<option value="WY">WY</option>
+
+</select>
+<input type="text" name="emp_zip" value="" placeholder="Zip"/>
+<div class="thirds">
+	<input type="text" name="empph1" value="" placeholder="Work Phone Area Code"/>
+	<input type="text" name="empph2" value="" placeholder="Work Phone Prefix"/>
+	<input type="text" name="empph3" value="" placeholder="Work Phone Suffix"/>
+</div>
+<input type="text" name="position" value="" placeholder="Position/Title"/>
+<select id="emp_lengthM" name="emp_lengthM">
+	<option value="">Time at job</option>
+	<option value="108">9+ Years</option>
+<option value="96">8 Years</option>
+<option value="84">7 Years</option>
+<option value="72">6 Years</option>
+<option value="60">5 Years</option>
+<option value="48" selected="selected">4 Years</option>
+<option value="36">3 Years</option>
+<option value="24">2 Years</option>
+<option value="12">1 Year or less</option>
+
+</select>
+<select id="income" name="income">
+	<option value="">Monthly take home pay</option>
+	<option value="1250">$1000 - $1250</option>
+<option value="1500">$1251 - $1500</option>
+<option value="1750">$1501 - $1750</option>
+<option value="2000">$1751 - $2000</option>
+<option value="2250">$2001 - $2250</option>
+<option value="2500">$2251 - $2500</option>
+<option value="2750">$2501 - $2750</option>
+<option value="3000">$2751 - $3000</option>
+<option value="3250">$3001 - $3250</option>
+<option value="3500">$3251 - $3500</option>
+<option value="3750">$3501 - $3750</option>
+<option value="4000">$3751 - $4000</option>
+<option value="4250">$4001 - $4250</option>
+<option value="4500">$4251 - $4500</option>
+<option value="4750">$4501 - $4750</option>
+<option value="5000">$4751 - $5000</option>
+<option value="5250">More than $5000</option>
+
+</select>
+<select id="pay_period" name="pay_period">
+	<option value="">How often do YOU get paid?</option>
+	<option value="2">Weekly</option>
+<option value="4" selected="selected">Every Other Week</option>
+<option value="8">Monthly</option>
+<option value="16">Twice-Monthly</option>
+
+</select>
+<select id="next_pay" name="next_pay">
+	<option value="">Date of 1st payday</option>
+	<option value="2016-06-13">Jun 13, 2016 - Mon</option>
+<option value="2016-06-14">Jun 14, 2016 - Tue</option>
+<option value="2016-06-15">Jun 15, 2016 - Wed</option>
+<option value="2016-06-16">Jun 16, 2016 - Thu</option>
+<option value="2016-06-17">Jun 17, 2016 - Fri</option>
+<option value="2016-06-20">Jun 20, 2016 - Mon</option>
+<option value="2016-06-21">Jun 21, 2016 - Tue</option>
+<option value="2016-06-22">Jun 22, 2016 - Wed</option>
+<option value="2016-06-23">Jun 23, 2016 - Thu</option>
+<option value="2016-06-24">Jun 24, 2016 - Fri</option>
+<option value="2016-06-27">Jun 27, 2016 - Mon</option>
+<option value="2016-06-28">Jun 28, 2016 - Tue</option>
+<option value="2016-06-29">Jun 29, 2016 - Wed</option>
+<option value="2016-06-30">Jun 30, 2016 - Thu</option>
+<option value="2016-07-01">Jul 01, 2016 - Fri</option>
+<option value="2016-07-05">Jul 05, 2016 - Tue</option>
+<option value="2016-07-06">Jul 06, 2016 - Wed</option>
+<option value="2016-07-07">Jul 07, 2016 - Thu</option>
+<option value="2016-07-08">Jul 08, 2016 - Fri</option>
+<option value="2016-07-11">Jul 11, 2016 - Mon</option>
+
+</select>
+<select id="next_pay2" name="next_pay2">
+	<option value="">Date of 2nd payday</option>
+	<option value="2016-06-20">Jun 20, 2016 - Mon</option>
+<option value="2016-06-21">Jun 21, 2016 - Tue</option>
+<option value="2016-06-22">Jun 22, 2016 - Wed</option>
+<option value="2016-06-23">Jun 23, 2016 - Thu</option>
+<option value="2016-06-24">Jun 24, 2016 - Fri</option>
+<option value="2016-06-27">Jun 27, 2016 - Mon</option>
+<option value="2016-06-28">Jun 28, 2016 - Tue</option>
+<option value="2016-06-29">Jun 29, 2016 - Wed</option>
+<option value="2016-06-30">Jun 30, 2016 - Thu</option>
+<option value="2016-07-01">Jul 01, 2016 - Fri</option>
+<option value="2016-07-05">Jul 05, 2016 - Tue</option>
+<option value="2016-07-06">Jul 06, 2016 - Wed</option>
+<option value="2016-07-07">Jul 07, 2016 - Thu</option>
+<option value="2016-07-08">Jul 08, 2016 - Fri</option>
+<option value="2016-07-11">Jul 11, 2016 - Mon</option>
+<option value="2016-07-12">Jul 12, 2016 - Tue</option>
+<option value="2016-07-13">Jul 13, 2016 - Wed</option>
+<option value="2016-07-14">Jul 14, 2016 - Thu</option>
+<option value="2016-07-15">Jul 15, 2016 - Fri</option>
+<option value="2016-07-18">Jul 18, 2016 - Mon</option>
+<option value="2016-07-19">Jul 19, 2016 - Tue</option>
+<option value="2016-07-20">Jul 20, 2016 - Wed</option>
+<option value="2016-07-21">Jul 21, 2016 - Thu</option>
+<option value="2016-07-22">Jul 22, 2016 - Fri</option>
+<option value="2016-07-25">Jul 25, 2016 - Mon</option>
+<option value="2016-07-26">Jul 26, 2016 - Tue</option>
+<option value="2016-07-27">Jul 27, 2016 - Wed</option>
+<option value="2016-07-28">Jul 28, 2016 - Thu</option>
+<option value="2016-07-29">Jul 29, 2016 - Fri</option>
+<option value="2016-08-01">Aug 01, 2016 - Mon</option>
+<option value="2016-08-02">Aug 02, 2016 - Tue</option>
+<option value="2016-08-03">Aug 03, 2016 - Wed</option>
+<option value="2016-08-04">Aug 04, 2016 - Thu</option>
+<option value="2016-08-05">Aug 05, 2016 - Fri</option>
+<option value="2016-08-08">Aug 08, 2016 - Mon</option>
+<option value="2016-08-09">Aug 09, 2016 - Tue</option>
+<option value="2016-08-10">Aug 10, 2016 - Wed</option>
+<option value="2016-08-11">Aug 11, 2016 - Thu</option>
+
+</select>
+<header>
+	<ul class="tabs">
+		<li class="active">Deposit</li>
+	</ul>
+</header>
+<input type="text" name="bank" value="" placeholder="Bank Name"/>
+<input type="text" name="routing" value="" placeholder="Routing number"/>
+<input type="text" name="acct" value="" placeholder="Account number"/>
+<select id="bank_lengthM" name="bank_lengthM">
+	<option value="">Time at bank</option>
+	<option value="108">9+ Years</option>
+<option value="96">8 Years</option>
+<option value="84">7 Years</option>
+<option value="72">6 Years</option>
+<option value="60">5 Years</option>
+<option value="48" selected="selected">4 Years</option>
+<option value="36">3 Years</option>
+<option value="24">2 Years</option>
+<option value="12">1 Year or less</option>
+
+</select>
+<input type="image" name="submit" src="img/continueBtn.png" />
+<input type="hidden" name="affId" value="">
+<input type="hidden" name="opt" value="">
+<input type="hidden" name="subc1" value="">
+<input type="hidden" name="subc2" value="">
+<input type="hidden" name="subc3" value="">
+<input type="hidden" name="uId" value="0">
+<input type="hidden" name="emId" value="166560478">
+<input type="hidden" name="lvl" value="0">
+<input type="hidden" name="rep" value="0">
+
+
+</form>
+</body>
+</html>

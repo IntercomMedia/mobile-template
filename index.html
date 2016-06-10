@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Online-PayDay-Direct.net</title>
+	<meta name="description" content="Online-PayDay-Direct.net - Helping you to get the money you need now! Our payday loans come fast and with no hassle!" />
+	<meta name="keywords" content="Installment Loans, Cash Loans, Money, Cash, Help, Loans" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
+	<link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" />
+	<script type="text/javascript" src="/inc/common.js"></script>
+	<script type="text/javascript" src="/inc/php.min.js"></script>
+	<script type="text/javascript" src="/inc/validate.php?p=1"></script>
+	<script type="text/javascript" charset="utf-8">
+	function date_time(id) {
+		date = new Date;
+		year = date.getFullYear();
+		month = date.getMonth();
+		d = date.getDate();
+		day = date.getDay();
+		days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+		h = date.getHours();
+		if(h<10){
+			h = "0"+h;
+		}
+		if(h >= 12) {
+			h = h - 12;
+		} else {
+			h = h;
+			add = " a.m.";
+		}
+
+		if (h <= 12) {
+			add = " p.m.";
+		}
+		if (h == 00) {
+			h = "12";
+		}
+
+		m = date.getMinutes();
+		if(m<10) {
+			m = "0"+m;
+		}
+		s = date.getSeconds();
+		if(s<10) {
+			s = "0"+s;
+		}
+		result = '<span class="date">'+month+'/'+d+'/'+year+' </span><span class="time"> '+h+':'+m+':'+s + ' ' + add + '</span>';
+		document.getElementById(id).innerHTML = result;
+		setTimeout('date_time("'+id+'");','1000');
+		return true;
+	}
+
+	window.onload = function(){
+		orientationSwitch();
+		/*retina image replacement script */
+		var root = (typeof exports == 'undefined' ? window : exports);
+
+		function RetinaImagePath(path) {
+			this.path = path;
+			this.at_2x_path = path.replace(/\.\w+$/, function(match) { return "@2x" + match; });
+		}
+			
+		root.RetinaImagePath = RetinaImagePath;
+		RetinaImagePath.confirmed_paths = [];
+			
+		RetinaImagePath.prototype.is_external = function() {
+			return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) )
+		}
+			
+		RetinaImagePath.prototype.check_2x_variant = function(callback) {
+			var http, that = this;
+			if (this.is_external()) {
+				return callback(false);
+			} else if (this.at_2x_path in RetinaImagePath.confirmed_paths) {
+				return callback(true);
+			} else {
+				http = new XMLHttpRequest;
+				http.open('HEAD', this.at_2x_path);
+				http.onreadystatechange = function() {
+					if (http.readyState != 4) {
+						return callback(false);
+					}
+			
+					if (http.status >= 200 && http.status <= 399) {
+						RetinaImagePath.confirmed_paths.push(that.at_2x_path);
+						return callback(true);
+					} else {
+						return callback(false);
+					}
+				}
+				http.send();
+			}
+		}
+
+		function RetinaImage(el) {
+			this.el = el;
+			this.path = new RetinaImagePath(this.el.getAttribute('src'));
+			var that = this;
+			this.path.check_2x_variant(function(hasVariant) {
+				if (hasVariant) that.swap();
+			});
+		}
+			
+		root.RetinaImage = RetinaImage;
+			
+		RetinaImage.prototype.swap = function(path) {
+			if (typeof path == 'undefined') path = this.path.at_2x_path;
+			var that = this;
+			function load() {
+				if (! that.el.complete) {
+					setTimeout(load, 5);
+				} else {
+					that.el.setAttribute('width', that.el.offsetWidth);
+					that.el.setAttribute('height', that.el.offsetHeight);
+					that.el.setAttribute('src', path);
+				}
+			}
+			load();
+		}
+
+		if (root.devicePixelRatio > 1) {
+			var images = document.getElementsByTagName("img"), retinaImages = [], i, image;
+			for (i = 0; i < images.length; i++) {
+				image = images[i];
+				retinaImages.push(new RetinaImage(image));
+			}
+		}
+	}
+
+	window.onorientationchange = function(){
+		orientationSwitch();
+	}
+		
+	function orientationSwitch() {
+		/*window.orientation returns a value that indicates whether iPhone is in portrait mode, landscape mode with the screen turned to the left, or landscape mode with the screen turned to the right. */
+		var orientation = window.orientation;
+		switch(orientation) {
+			case 0:
+			/* If in portrait mode, sets the body's class attribute to portrait. Consequently, all style definitions matching the body[class="portrait"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+				document.body.setAttribute("class","portrait");
+				break; 
+			case 90:
+			/* If in landscape mode with the screen turned to the left, sets the body's class attribute to landscapeLeft. In this case, all style definitions matching the body[class="landscapeLeft"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+				document.body.setAttribute("class","landscape");
+				break;
+			case -90: 
+				/* If in landscape mode with the screen turned to the right, sets the body's class attribute to landscapeRight. Here, all style definitions matching the body[class="landscapeRight"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+				document.body.setAttribute("class","landscape");
+				break;
+		}
+	}
+	</script>
+</head>
+<body>
+<header>
+	<img src="img/logo_mobile.png" />
+</header>
+<div class="phone">
+</div>
+<div class="heading">
+	<h1>Cash Advance Loans <span>from $100-$1,000</span></h1>
+	<div class="arrow">
+		<img src="img/arrow.png" />
+	</div>
+</div>
+<form name="formOffer" id="formOffer" method="post" onsubmit="return validateForm(18, '')" action="/gateway-1/">
+	<input type="text" name="fname" value="" onfocus="if (this.value == 'First Name') { this.value = '';}" onblur="if (this.value == '') { this.value = 'First Name'; }" placeholder="First Name" />
+	<input type="text" name="lname" value="" onfocus="if (this.value == 'Last Name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Last Name'; } " placeholder="Last Name" />
+	<input type="text" name="email" value="" onfocus="if (this.value == 'Email Address') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'Email Address'; }" placeholder="Email Address" />
+	<select name="state">
+		<option value="">State</option>
+		<option value="AL">AL</option>
+		<option value="AR">AR</option>
+		<option value="AZ">AZ</option>
+		<option value="CA">CA</option>
+		<option value="CO">CO</option>
+		<option value="CT">CT</option>
+		<option value="DC">DC</option>
+		<option value="DE">DE</option>
+		<option value="FL">FL</option>
+		<option value="GA">GA</option>
+		<option value="HI">HI</option>
+		<option value="IA">IA</option>
+		<option value="ID">ID</option>
+		<option value="IL">IL</option>
+		<option value="IN">IN</option>
+		<option value="KS">KS</option>
+		<option value="KY">KY</option>
+		<option value="LA">LA</option>
+		<option value="MA">MA</option>
+		<option value="MD">MD</option>
+		<option value="ME">ME</option>
+		<option value="MI">MI</option>
+		<option value="MN">MN</option>
+		<option value="MO">MO</option>
+		<option value="MS">MS</option>
+		<option value="MT">MT</option>
+		<option value="NC">NC</option>
+		<option value="ND">ND</option>
+		<option value="NE">NE</option>
+		<option value="NH">NH</option>
+		<option value="NJ">NJ</option>
+		<option value="NM">NM</option>
+		<option value="NV">NV</option>
+		<option value="OH">OH</option>
+		<option value="OK">OK</option>
+		<option value="OR">OR</option>
+		<option value="PA">PA</option>
+		<option value="RI">RI</option>
+		<option value="SC">SC</option>
+		<option value="SD">SD</option>
+		<option value="TN">TN</option>
+		<option value="TX">TX</option>
+		<option value="UT">UT</option>
+		<option value="VA">VA</option>
+		<option value="WA">WA</option>
+		<option value="WI">WI</option>
+		<option value="WY">WY</option>
+	</select>
+	<input type="text" name="ph1" value="" placeholder="Area Code" />
+	<input type="text" name="ph2" value="" placeholder="Phone Prefix" />
+	<input type="text" name="ph3" value="" placeholder="Phone Suffix" />
+	<select name="income">
+		<option value="">Monthly income</option>
+		<option value="1">Under $500</option>
+		<option value="2">$500 - $799</option>
+		<option value="3">$800 - $1000</option>
+		<option value="4">$1001 - $1500</option>
+		<option value="5">$1501 - $2000</option>
+		<option value="6">$2001 - $2500</option>
+		<option value="7">$2501 - $3000</option>
+		<option value="8">$3001 - $3500</option>
+		<option value="9">$3501 - $4000</option>
+		<option value="10">$4001 - $4500</option>
+		<option value="11">$4501 - $5000</option>
+		<option value="12" SELECTED>Over $5000</option>
+	</select>
+	<select name="pmt">
+		<option value="">Direct deposit?</option>
+		<option value="1" SELECTED>Direct Deposit To Checking Acct</option>
+		<option value="2">Paper Check From Employer</option>
+		<option value="3">None Of The Above</option>
+	</select>
+	<p class="disclaimer">
+		<input type="checkbox" name="lm_agree" value="1" CHECKED />
+		<label for="agree">I certify that I am a U.S. Resident over the age of 18, I agree to the <span class="font2"><a href="javascript:{}" onclick="window.open('/econsent/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">E-consent</a></span>, <span class="font2"><a href="javascript:{}" onclick="window.open('/privacy/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">Privacy Policy</a></span> & <span class="font2"><a href="javascript:{}" onclick="window.open('/terms/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">Terms of Use</a></span> and that I may receive special offers.</label>
+	</p>
+	<input type="image" name="submit" src="img/submitBtn.png" />
+	<input type="hidden" name="affId" value="" />
+	<input type="hidden" name="opt" value="" />
+	<input type="hidden" name="subc1" value="" />
+	<input type="hidden" name="subc2" value="" />
+	<input type="hidden" name="subc3" value="" />
+	<input type="hidden" name="military" value="0" />
+</form>
+<div class="info">
+	<div class="steps">
+		<img src="img/compIcon.png" /><h3>1. Easy Short Form</h3>
+		<p>Complete our form online and we will search 100s of Lenders to locate the best match for you!</p>
+	</div>
+	<div class="steps">
+		<img src="img/checkIcon.png" /><h3>2. Accept Loan</h3>
+		<p>Once matched, we send you to the Lender's signature page where you will agree to the repayment terms.</p>
+	</div>
+	<div class="steps">
+		<img src="img/cashIcon.png" /><h3>3. Get Your Cash</h3>
+		<p>Once approved, money will be automatically deposited to your bank account. It's that easy!</p>
+	</div>
+	<h2>Your Online Payday Loan Center</h2>
+	<p><strong>Online-PayDay-Direct.net</strong> handles all your unexpected events. By completing our online form you can qualify for a loan from $100 to $1,000 with no credit required. Our simple online qualifications process helps thousands of people get cash they need online. <strong>Online-PayDay-Direct.net's</strong> large database of lenders offers the cash you need. Pay off the lender based on loan terms. Our online form only takes minutes to complete.</p>
+</div>
+<div class="finePrint">
+	<b>Important Note</b>: Payday loans or cash advances are provided for the purpose of assisting you with short term financing to resolve immediate cash needs and should not be considered a long term solution. All users should seek advice from the appropriate professional before entering into this type of loan.<br /><br />
+	<b>We Are Not Lenders or Brokers</b>. The operator of this website is not a lender, nor a broker, agent or representative to any lender. We do not make cash advances or credit decisions. Advertising on or through this website does not constitute an offer or solicitation to lend money to you. This website provides a service wherein we collect the information you submit to us and provide it to an independent network of companies, including lenders, who will secure the loan for you. All financial terms of the loan will be presented to you by the lender. For details, questions or concerns regarding your cash advance or payday loan, please contact your lender directly. Typically lenders will not perform credit checks with the three credit reporting bureaus: Experian, Equifax, or Trans Union. Credit checks or consumer reports through alternative providers may be obtained by some lenders.<br /><br />
+	<b>Limitations</b>. Not all lenders can provide you with up to $1,000 on your first advance. Often this is dependent upon the State in which you reside and the information you provide to us for the lender's review. Providing your information on this Website does not guarantee that you will be approved for a cash advance or loan. Cash transfer times may vary between lenders and may depend on your individual financial institution. In some circumstances faxing may be required. This service is not available in all states, and the states serviced by this Website may change from time to time without notice. This service does not constitute an offer or solicitation for payday loans where prohibited by law.<br /><br />
+	<b>No Endorsement</b>. The operator of this website is a marketer who is compensated for their services as described in our <a class="link" href="javascript:{}" onclick="window.open('/disclosure/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">marketing disclosure</a> and does not endorse or recommend any service or product advertised on or through this site.
+</div>
+<footer>
+	<a href="javascript:{}" onClick="window.open('/terms/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Terms</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="javascript:{}" onClick="window.open('/privacy/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="javascript:{}" onClick="window.open('/econsent/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">E-consent</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="javascript:{}" onClick="window.open('/unsub/', 'footer', 'width=650,height=650,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Unsub</a>
+</footer>
+
+</form>
+</body>
+</html>

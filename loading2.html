@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Online-PayDay-Direct.net - loading...</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
+        <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" />
+	<script type="text/javascript" src="/inc/common.js"></script>
+	<script type="text/javascript" src="/inc/php.min.js"></script>
+	<script type="text/javascript" src="/inc/jquery.min.js"></script>
+	<script type="text/javascript" src="/inc/ajax.php?p=test"></script>
+	<script type="text/javascript" charset="utf-8">
+		var Timer;
+		var TotalSeconds;
+
+		function CreateTimer(TimerID, Time) {
+			Timer = document.getElementById(TimerID);
+			TotalSeconds = Time * 100;
+
+			UpdateTimer()
+			window.setTimeout("Tick()", 10);
+		}
+
+		function Tick() {
+			TotalSeconds -= 1;
+			UpdateTimer()
+			window.setTimeout("Tick()", 10);
+		}
+
+		function UpdateTimer() {
+			var Decisecond = TotalSeconds;
+
+			var Seconds = Math.floor(Decisecond / 100);
+			Decisecond -= Seconds * (100);
+
+			var Minutes = Math.floor(Seconds / 60);
+			Seconds -= Minutes * (60);
+
+			var TimeStr = LeadingZero(Minutes) + ":" + LeadingZero(Seconds) + ":" + LeadingZero(Decisecond);
+			Timer.innerHTML = TimeStr;
+		}
+
+
+		function LeadingZero(time) {
+			return (time < 10) ? "0" + time : + time;
+		}
+
+		function date_time(id) {
+			date = new Date;
+			year = date.getFullYear();
+			month = date.getMonth();
+			d = date.getDate();
+			day = date.getDay();
+			days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+			h = date.getHours();
+			if(h<10){
+				h = "0"+h;
+			}
+			if(h >= 12) {
+				h = h - 12;
+			} else {
+				h = h;
+				add = " a.m.";
+			}
+
+			if (h <= 12) {
+				add = " p.m.";
+			}
+			if (h == 00) {
+				h = "12";
+			}
+
+			m = date.getMinutes();
+			if(m<10) {
+				m = "0"+m;
+			}
+			s = date.getSeconds();
+			if(s<10) {
+				s = "0"+s;
+			}
+			result = '<span class="date">'+month+'/'+d+'/'+year+' </span><span class="time"> '+h+':'+m+':'+s + ' ' + add + '</span>';
+			document.getElementById(id).innerHTML = result;
+			setTimeout('date_time("'+id+'");','1000');
+			return true;
+		}
+
+		window.onload = function(){
+			orientationSwitch();
+			/*retina image replacement script */
+			var root = (typeof exports == 'undefined' ? window : exports);
+
+			function RetinaImagePath(path) {
+				this.path = path;
+				this.at_2x_path = path.replace(/\.\w+$/, function(match) { return "@2x" + match; });
+			}
+
+			root.RetinaImagePath = RetinaImagePath;
+			RetinaImagePath.confirmed_paths = [];
+
+			RetinaImagePath.prototype.is_external = function() {
+				return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) )
+			}
+
+			RetinaImagePath.prototype.check_2x_variant = function(callback) {
+				var http, that = this;
+				if (this.is_external()) {
+					return callback(false);
+				} else if (this.at_2x_path in RetinaImagePath.confirmed_paths) {
+					return callback(true);
+				} else {
+					http = new XMLHttpRequest;
+					http.open('HEAD', this.at_2x_path);
+					http.onreadystatechange = function() {
+						if (http.readyState != 4) {
+							return callback(false);
+						}
+
+						if (http.status >= 200 && http.status <= 399) {
+							RetinaImagePath.confirmed_paths.push(that.at_2x_path);
+							return callback(true);
+						} else {
+							return callback(false);
+						}
+					}
+					http.send();
+				}
+			}
+
+			function RetinaImage(el) {
+				this.el = el;
+				this.path = new RetinaImagePath(this.el.getAttribute('src'));
+				var that = this;
+				this.path.check_2x_variant(function(hasVariant) {
+					if (hasVariant) that.swap();
+				});
+			}
+
+			root.RetinaImage = RetinaImage;
+
+			RetinaImage.prototype.swap = function(path) {
+				if (typeof path == 'undefined') path = this.path.at_2x_path;
+				var that = this;
+				function load() {
+					if (! that.el.complete) {
+						setTimeout(load, 5);
+					} else {
+						that.el.setAttribute('width', that.el.offsetWidth);
+						that.el.setAttribute('height', that.el.offsetHeight);
+						that.el.setAttribute('src', path);
+					}
+				}
+				load();
+			}
+
+			if (root.devicePixelRatio > 1) {
+				var images = document.getElementsByTagName("img"), retinaImages = [], i, image;
+				for (i = 0; i < images.length; i++) {
+					image = images[i];
+					retinaImages.push(new RetinaImage(image));
+				}
+			}
+		}
+
+		window.onorientationchange = function(){
+			orientationSwitch();
+		}
+
+		function orientationSwitch() {
+			/*window.orientation returns a value that indicates whether iPhone is in portrait mode, landscape mode with the screen turned to the left, or landscape mode with the screen turned to the right. */
+			var orientation = window.orientation;
+			switch(orientation) {
+				case 0:
+				/* If in portrait mode, sets the body's class attribute to portrait. Consequently, all style definitions matching the body[class="portrait"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+					document.body.setAttribute("class","portrait");
+					break; 
+				case 90:
+				/* If in landscape mode with the screen turned to the left, sets the body's class attribute to landscapeLeft. In this case, all style definitions matching the body[class="landscapeLeft"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+					document.body.setAttribute("class","landscape");
+					break;
+				case -90: 
+					/* If in landscape mode with the screen turned to the right, sets the body's class attribute to landscapeRight. Here, all style definitions matching the body[class="landscapeRight"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+					document.body.setAttribute("class","landscape");
+					break;
+			}
+		}
+	</script>
+</head>
+<body>
+<header>
+	<img src="img/logo_mobile.png" />
+</header>
+<div class="heading">
+	<h1>Please wait while we Process Your Request...</h1>
+	<img src="img/ajax-loader.gif" />
+	<h4>Please wait while we are locating<br />a lender that matches your needs.</h4>
+</div>
+<div class="content loading">
+	<h3>Please be patient, as this my take a few minutes.</h3>
+	<p>Once this process finishes <strong>you</strong> may be presented with an <strong>e-Signature form.</strong></p>
+	<hr />
+	<h3>IMPORTANT!</h3>
+	<p>Please <strong>review</strong> and <strong>complete</strong> the e-Signature form to receive your loan.</p>
+</div>
+</body>
+</html>
