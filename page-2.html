@@ -6,6 +6,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
         <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" />
+    <!--#1: Can we create a variable for the main color of the brand and echo it here? "background-color: #{MAIN_COLOR}; -->
+	<style>
+		.heading::after,
+		.main-color-bg {
+			background-color: #118549; /* variable for main color */
+		}
+		
+		.icon-svg {
+			stroke : #118549;/* variable for main color */
+			fill:none;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+			stroke-width:1.44px;
+		}
+		
+		a,
+		.main-color-font {
+			color: #118549; /* variable for main color */
+		}
+	</style>
 	<script type="text/javascript" src="/inc/common.js"></script>
 	<script type="text/javascript" src="/inc/php.min.js"></script>
 	<script type="text/javascript" src="/inc/validate.php?p=2"></script>
@@ -154,17 +174,19 @@
 <header>
 	<img src="img/logo_mobile.png" />
 </header>
-<header>
+<!--#2 removed
 	<ul class="tabs">
-		<li class="active">General</li>
-	</ul>
-</header>
+	<li class="active main-color-bg">General</li>
+</ul>
+
+-->
 <div class="heading">
 	<h1>Welcome, John Figa</h1>
 	<h4>Complete the information below to request your cash</h4>
-	<div class="arrow">
+	<!--#3 removed <div class="arrow">
 		<img src="img/arrow.png" />
 	</div>
+	 -->
 </div>
 <form name="formOffer" id="formOffer" method="post" onsubmit="return validateForm(18, '')" action="/gateway-2/">
 <select id="amt" name="amt" onChange="promptAmt(document.formOffer.amt.options[document.formOffer.amt.selectedIndex].value)">
@@ -268,8 +290,9 @@
 <option value="32">Evening At Work</option>
 
 </select>
+<!--#4a: #4b moved here --> <label for="dobM">DOB</label>
 <p class="thirds">
-	<label for="dobM">DOB</label><br/>
+	<!--#4b <label for="dobM">DOB</label><br/> -->
 	<select id="dobM" name="dobM">
 		<option value="">MM</option>
 		<option value="01">Jan</option>
@@ -464,7 +487,7 @@
 </select>
 <header>
 	<ul class="tabs">
-		<li class="active">Job</li>
+		<li class="active main-color-bg">Job</li>
 	</ul>
 </header>
 <select id="emp_status" name="emp_status">
@@ -650,7 +673,7 @@
 </select>
 <header>
 	<ul class="tabs">
-		<li class="active">Deposit</li>
+		<li class="active main-color-bg">Deposit</li>
 	</ul>
 </header>
 <input type="text" name="bank" value="" placeholder="Bank Name"/>
@@ -669,7 +692,7 @@
 <option value="12">1 Year or less</option>
 
 </select>
-<input type="image" name="submit" src="img/continueBtn.png" />
+<!--#5"--><button type="submit" name="submit" class="btn-submit main-color-bg">Continue </button>
 <input type="hidden" name="affId" value="">
 <input type="hidden" name="opt" value="">
 <input type="hidden" name="subc1" value="">
