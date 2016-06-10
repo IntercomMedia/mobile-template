@@ -1,410 +1,805 @@
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Online-PayDay-Direct.net</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
-        <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" />
-    <!--#1: Can we create a variable for the main color of the brand and echo it here? "background-color: #{MAIN_COLOR}; -->
-	<style>
-		.heading::after,
-		.main-color-bg {
-			background-color: #118549; /* variable for main color */
-		}
-		
-		.icon-svg {
-			stroke : #118549;/* variable for main color */
-			fill:none;
-			stroke-linecap:round;
-			stroke-linejoin:round;
-			stroke-width:1.44px;
-		}
-		
-		a,
-		.main-color-font {
-			color: #118549; /* variable for main color */
-		}
-	</style>
-	<script type="text/javascript" src="/inc/common.js"></script>
-	<script type="text/javascript" src="/inc/php.min.js"></script>
-	<script type="text/javascript" src="/inc/validate.php?p=2"></script>
-	<script type="text/javascript" charset="utf-8">
-		function date_time(id) {
-			date = new Date;
-			year = date.getFullYear();
-			month = date.getMonth();
-			d = date.getDate();
-			day = date.getDay();
-			days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-			h = date.getHours();
-			if(h<10){
-				h = "0"+h;
-			}
-			if(h >= 12) {
-				h = h - 12;
-			} else {
-				h = h;
-				add = " a.m.";
-			}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-			if (h <= 12) {
-				add = " p.m.";
-			}
-			if (h == 00) {
-				h = "12";
-			}
+    <title>Online-PayDay-Direct.net</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" media="all" href="inc/styles.css" />
+    <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="inc/highres.css" /><!--#1: Can we create a variable for the main color of the brand and echo it here? "background-color: #{MAIN_COLOR}; -->
 
-			m = date.getMinutes();
-			if(m<10) {
-				m = "0"+m;
-			}
-			s = date.getSeconds();
-			if(s<10) {
-				s = "0"+s;
-			}
-			result = '<span class="date">'+month+'/'+d+'/'+year+' </span><span class="time"> '+h+':'+m+':'+s + ' ' + add + '</span>';
-			document.getElementById(id).innerHTML = result;
-			setTimeout('date_time("'+id+'");','1000');
-			return true;
-		}
+    <style>
+        .heading::after,
+        .main-color-bg {
+            background-color: #118549; /* variable for main color */
+        }
+        
+        .icon-svg {
+            stroke : #118549;/* variable for main color */
+            fill:none;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+            stroke-width:1.44px;
+        }
+        
+        a,
+        .main-color-font {
+            color: #118549; /* variable for main color */
+        }
+    </style>
+    <script type="text/javascript" src="/inc/common.js">
+</script>
+    <script type="text/javascript" src="/inc/php.min.js">
+</script>
+    <script type="text/javascript" src="/inc/validate.php?p=2">
+</script>
+    <script type="text/javascript" charset="utf-8">
+//<![CDATA[
+        function date_time(id) {
+            date = new Date;
+            year = date.getFullYear();
+            month = date.getMonth();
+            d = date.getDate();
+            day = date.getDay();
+            days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+            h = date.getHours();
+            if(h<10){
+                h = "0"+h;
+            }
+            if(h >= 12) {
+                h = h - 12;
+            } else {
+                h = h;
+                add = " a.m.";
+            }
 
-		window.onload = function(){
-			orientationSwitch();
-			/*retina image replacement script */
-			var root = (typeof exports == 'undefined' ? window : exports);
+            if (h <= 12) {
+                add = " p.m.";
+            }
+            if (h == 00) {
+                h = "12";
+            }
 
-			function RetinaImagePath(path) {
-				this.path = path;
-				this.at_2x_path = path.replace(/\.\w+$/, function(match) { return "@2x" + match; });
-			}
+            m = date.getMinutes();
+            if(m<10) {
+                m = "0"+m;
+            }
+            s = date.getSeconds();
+            if(s<10) {
+                s = "0"+s;
+            }
+            result = '<span class="date">'+month+'/'+d+'/'+year+' <\/span><span class="time"> '+h+':'+m+':'+s + ' ' + add + '<\/span>';
+            document.getElementById(id).innerHTML = result;
+            setTimeout('date_time("'+id+'");','1000');
+            return true;
+        }
 
-			root.RetinaImagePath = RetinaImagePath;
-			RetinaImagePath.confirmed_paths = [];
+        window.onload = function(){
+            orientationSwitch();
+            /*retina image replacement script */
+            var root = (typeof exports == 'undefined' ? window : exports);
 
-			RetinaImagePath.prototype.is_external = function() {
-				return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) )
-			}
+            function RetinaImagePath(path) {
+                this.path = path;
+                this.at_2x_path = path.replace(/\.\w+$/, function(match) { return "@2x" + match; });
+            }
 
-			RetinaImagePath.prototype.check_2x_variant = function(callback) {
-				var http, that = this;
-				if (this.is_external()) {
-					return callback(false);
-				} else if (this.at_2x_path in RetinaImagePath.confirmed_paths) {
-					return callback(true);
-				} else {
-					http = new XMLHttpRequest;
-					http.open('HEAD', this.at_2x_path);
-					http.onreadystatechange = function() {
-						if (http.readyState != 4) {
-							return callback(false);
-						}
+            root.RetinaImagePath = RetinaImagePath;
+            RetinaImagePath.confirmed_paths = [];
 
-						if (http.status >= 200 && http.status <= 399) {
-							RetinaImagePath.confirmed_paths.push(that.at_2x_path);
-							return callback(true);
-						} else {
-							return callback(false);
-						}
-					}
-					http.send();
-				}
-			}
+            RetinaImagePath.prototype.is_external = function() {
+                return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) )
+            }
 
-			function RetinaImage(el) {
-				this.el = el;
-				this.path = new RetinaImagePath(this.el.getAttribute('src'));
-				var that = this;
-				this.path.check_2x_variant(function(hasVariant) {
-					if (hasVariant) that.swap();
-				});
-			}
+            RetinaImagePath.prototype.check_2x_variant = function(callback) {
+                var http, that = this;
+                if (this.is_external()) {
+                    return callback(false);
+                } else if (this.at_2x_path in RetinaImagePath.confirmed_paths) {
+                    return callback(true);
+                } else {
+                    http = new XMLHttpRequest;
+                    http.open('HEAD', this.at_2x_path);
+                    http.onreadystatechange = function() {
+                        if (http.readyState != 4) {
+                            return callback(false);
+                        }
 
-			root.RetinaImage = RetinaImage;
+                        if (http.status >= 200 && http.status <= 399) {
+                            RetinaImagePath.confirmed_paths.push(that.at_2x_path);
+                            return callback(true);
+                        } else {
+                            return callback(false);
+                        }
+                    }
+                    http.send();
+                }
+            }
 
-			RetinaImage.prototype.swap = function(path) {
-				if (typeof path == 'undefined') path = this.path.at_2x_path;
-				var that = this;
-				function load() {
-					if (! that.el.complete) {
-						setTimeout(load, 5);
-					} else {
-						that.el.setAttribute('width', that.el.offsetWidth);
-						that.el.setAttribute('height', that.el.offsetHeight);
-						that.el.setAttribute('src', path);
-					}
-				}
-				load();
-			}
+            function RetinaImage(el) {
+                this.el = el;
+                this.path = new RetinaImagePath(this.el.getAttribute('src'));
+                var that = this;
+                this.path.check_2x_variant(function(hasVariant) {
+                    if (hasVariant) that.swap();
+                });
+            }
 
-			if (root.devicePixelRatio > 1) {
-				var images = document.getElementsByTagName("img"), retinaImages = [], i, image;
-				for (i = 0; i < images.length; i++) {
-					image = images[i];
-					retinaImages.push(new RetinaImage(image));
-				}
-			}
-		}
+            root.RetinaImage = RetinaImage;
 
-		window.onorientationchange = function(){
-			orientationSwitch();
-		}
+            RetinaImage.prototype.swap = function(path) {
+                if (typeof path == 'undefined') path = this.path.at_2x_path;
+                var that = this;
+                function load() {
+                    if (! that.el.complete) {
+                        setTimeout(load, 5);
+                    } else {
+                        that.el.setAttribute('width', that.el.offsetWidth);
+                        that.el.setAttribute('height', that.el.offsetHeight);
+                        that.el.setAttribute('src', path);
+                    }
+                }
+                load();
+            }
 
-		function orientationSwitch() {
-			/*window.orientation returns a value that indicates whether iPhone is in portrait mode, landscape mode with the screen turned to the left, or landscape mode with the screen turned to the right. */
-			var orientation = window.orientation;
-			switch(orientation) {
-				case 0:
-				/* If in portrait mode, sets the body's class attribute to portrait. Consequently, all style definitions matching the body[class="portrait"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
-					document.body.setAttribute("class","portrait");
-					break; 
-				case 90:
-				/* If in landscape mode with the screen turned to the left, sets the body's class attribute to landscapeLeft. In this case, all style definitions matching the body[class="landscapeLeft"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
-					document.body.setAttribute("class","landscape");
-					break;
-				case -90: 
-					/* If in landscape mode with the screen turned to the right, sets the body's class attribute to landscapeRight. Here, all style definitions matching the body[class="landscapeRight"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
-					document.body.setAttribute("class","landscape");
-					break;
-			}
-		}
-	</script>
+            if (root.devicePixelRatio > 1) {
+                var images = document.getElementsByTagName("img"), retinaImages = [], i, image;
+                for (i = 0; i < images.length; i++) {
+                    image = images[i];
+                    retinaImages.push(new RetinaImage(image));
+                }
+            }
+        }
+
+        window.onorientationchange = function(){
+            orientationSwitch();
+        }
+
+        function orientationSwitch() {
+            /*window.orientation returns a value that indicates whether iPhone is in portrait mode, landscape mode with the screen turned to the left, or landscape mode with the screen turned to the right. */
+            var orientation = window.orientation;
+            switch(orientation) {
+                case 0:
+                /* If in portrait mode, sets the body's class attribute to portrait. Consequently, all style definitions matching the body[class="portrait"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+                    document.body.setAttribute("class","portrait");
+                    break; 
+                case 90:
+                /* If in landscape mode with the screen turned to the left, sets the body's class attribute to landscapeLeft. In this case, all style definitions matching the body[class="landscapeLeft"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+                    document.body.setAttribute("class","landscape");
+                    break;
+                case -90: 
+                    /* If in landscape mode with the screen turned to the right, sets the body's class attribute to landscapeRight. Here, all style definitions matching the body[class="landscapeRight"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
+                    document.body.setAttribute("class","landscape");
+                    break;
+            }
+        }
+    //]]>
+    </script>
 </head>
-<body>
-<header>
-	<img src="img/logo_mobile.png" />
-</header>
-<div class="page4">
-	<div class="heading">
-		<h3>Final Step!</h3>
-		<p>Our records indicate that we have your record on file.  Click below to submit for $100 to a $1,000 Cash Advance.</p>
-	</div>
-	<form name="formOffer" id="formOffer" method="POST" action="/gateway-1/">
-	<input type="text" name="email" value="johnfiga@gmail.com" placeholder="email"/>
-	<div class="halves">
-		<input type="text" name="ssn3" value="" placeholder="Last 4 digits of SSN"/>
-		<select id="dobY" name="dobY">
-			<option value="">Birth Year</option>
-			<option value="1998">1998</option>
-	<option value="1997">1997</option>
-	<option value="1996">1996</option>
-	<option value="1995">1995</option>
-	<option value="1994">1994</option>
-	<option value="1993">1993</option>
-	<option value="1992">1992</option>
-	<option value="1991">1991</option>
-	<option value="1990">1990</option>
-	<option value="1989">1989</option>
-	<option value="1988">1988</option>
-	<option value="1987">1987</option>
-	<option value="1986">1986</option>
-	<option value="1985">1985</option>
-	<option value="1984">1984</option>
-	<option value="1983">1983</option>
-	<option value="1982">1982</option>
-	<option value="1981">1981</option>
-	<option value="1980">1980</option>
-	<option value="1979">1979</option>
-	<option value="1978">1978</option>
-	<option value="1977">1977</option>
-	<option value="1976">1976</option>
-	<option value="1975">1975</option>
-	<option value="1974">1974</option>
-	<option value="1973">1973</option>
-	<option value="1972">1972</option>
-	<option value="1971">1971</option>
-	<option value="1970">1970</option>
-	<option value="1969">1969</option>
-	<option value="1968">1968</option>
-	<option value="1967">1967</option>
-	<option value="1966">1966</option>
-	<option value="1965">1965</option>
-	<option value="1964">1964</option>
-	<option value="1963">1963</option>
-	<option value="1962">1962</option>
-	<option value="1961">1961</option>
-	<option value="1960">1960</option>
-	<option value="1959">1959</option>
-	<option value="1958">1958</option>
-	<option value="1957">1957</option>
-	<option value="1956">1956</option>
-	<option value="1955">1955</option>
-	<option value="1954">1954</option>
-	<option value="1953">1953</option>
-	<option value="1952">1952</option>
-	<option value="1951">1951</option>
-	<option value="1950">1950</option>
-	<option value="1949">1949</option>
-	<option value="1948">1948</option>
-	<option value="1947">1947</option>
-	<option value="1946">1946</option>
-	<option value="1945">1945</option>
-	<option value="1944">1944</option>
-	<option value="1943">1943</option>
-	<option value="1942">1942</option>
-	<option value="1941">1941</option>
-	<option value="1940">1940</option>
-	<option value="1939">1939</option>
-	<option value="1938">1938</option>
-	<option value="1937">1937</option>
-	<option value="1936">1936</option>
-	<option value="1935">1935</option>
-	<option value="1934">1934</option>
-	<option value="1933">1933</option>
-	<option value="1932">1932</option>
-	<option value="1931">1931</option>
-	
-		</select>
-	</div>
-	<select id="amt" name="amt">
-		<option value="">Desired Loan Amount</option>
-		<option value="100">$100</option>
-<option value="200">$200</option>
-<option value="300" selected="selected">$300</option>
-<option value="400">$400</option>
-<option value="500">$500+</option>
 
-	</select>
-	<select id="pay_period" name="pay_period">
-		<option value="">Pay frequency</option>
-		<option value="2">Weekly</option>
-<option value="4" selected="selected">Every Other Week</option>
-<option value="8">Monthly</option>
-<option value="16">Twice-Monthly</option>
+<body class="page4">
+    <header>
+        <img src="img/logo_mobile.png" />
+    </header>
+        <div class="heading">
+            <p>Our records indicate that we have your record on file. Click below to submit for $100 to a $1,000 Cash Advance.</p>
+        </div>
 
-	</select>
-	<select id="next_pay" name="next_pay">
-		<option value="">Date of 1st payday</option>
-		<option value="2016-06-13">Jun 13, 2016 - Mon</option>
-<option value="2016-06-14">Jun 14, 2016 - Tue</option>
-<option value="2016-06-15">Jun 15, 2016 - Wed</option>
-<option value="2016-06-16">Jun 16, 2016 - Thu</option>
-<option value="2016-06-17">Jun 17, 2016 - Fri</option>
-<option value="2016-06-20">Jun 20, 2016 - Mon</option>
-<option value="2016-06-21">Jun 21, 2016 - Tue</option>
-<option value="2016-06-22">Jun 22, 2016 - Wed</option>
-<option value="2016-06-23">Jun 23, 2016 - Thu</option>
-<option value="2016-06-24">Jun 24, 2016 - Fri</option>
-<option value="2016-06-27">Jun 27, 2016 - Mon</option>
-<option value="2016-06-28">Jun 28, 2016 - Tue</option>
-<option value="2016-06-29">Jun 29, 2016 - Wed</option>
-<option value="2016-06-30">Jun 30, 2016 - Thu</option>
-<option value="2016-07-01">Jul 01, 2016 - Fri</option>
-<option value="2016-07-05">Jul 05, 2016 - Tue</option>
-<option value="2016-07-06">Jul 06, 2016 - Wed</option>
-<option value="2016-07-07">Jul 07, 2016 - Thu</option>
-<option value="2016-07-08">Jul 08, 2016 - Fri</option>
-<option value="2016-07-11">Jul 11, 2016 - Mon</option>
+        <form id="formOffer" method="post" action="/gateway-1/">
+            <input type="text" name="email" value="johnfiga@gmail.com" placeholder="email" />
 
-	</select>
-	<select id="next_pay2" name="next_pay2">
-		<option value="">Date of 2nd payday</option>
-		<option value="2016-06-20">Jun 20, 2016 - Mon</option>
-<option value="2016-06-21">Jun 21, 2016 - Tue</option>
-<option value="2016-06-22">Jun 22, 2016 - Wed</option>
-<option value="2016-06-23">Jun 23, 2016 - Thu</option>
-<option value="2016-06-24">Jun 24, 2016 - Fri</option>
-<option value="2016-06-27">Jun 27, 2016 - Mon</option>
-<option value="2016-06-28">Jun 28, 2016 - Tue</option>
-<option value="2016-06-29">Jun 29, 2016 - Wed</option>
-<option value="2016-06-30">Jun 30, 2016 - Thu</option>
-<option value="2016-07-01">Jul 01, 2016 - Fri</option>
-<option value="2016-07-05">Jul 05, 2016 - Tue</option>
-<option value="2016-07-06">Jul 06, 2016 - Wed</option>
-<option value="2016-07-07">Jul 07, 2016 - Thu</option>
-<option value="2016-07-08">Jul 08, 2016 - Fri</option>
-<option value="2016-07-11">Jul 11, 2016 - Mon</option>
-<option value="2016-07-12">Jul 12, 2016 - Tue</option>
-<option value="2016-07-13">Jul 13, 2016 - Wed</option>
-<option value="2016-07-14">Jul 14, 2016 - Thu</option>
-<option value="2016-07-15">Jul 15, 2016 - Fri</option>
-<option value="2016-07-18">Jul 18, 2016 - Mon</option>
-<option value="2016-07-19">Jul 19, 2016 - Tue</option>
-<option value="2016-07-20">Jul 20, 2016 - Wed</option>
-<option value="2016-07-21">Jul 21, 2016 - Thu</option>
-<option value="2016-07-22">Jul 22, 2016 - Fri</option>
-<option value="2016-07-25">Jul 25, 2016 - Mon</option>
-<option value="2016-07-26">Jul 26, 2016 - Tue</option>
-<option value="2016-07-27">Jul 27, 2016 - Wed</option>
-<option value="2016-07-28">Jul 28, 2016 - Thu</option>
-<option value="2016-07-29">Jul 29, 2016 - Fri</option>
-<option value="2016-08-01">Aug 01, 2016 - Mon</option>
-<option value="2016-08-02">Aug 02, 2016 - Tue</option>
-<option value="2016-08-03">Aug 03, 2016 - Wed</option>
-<option value="2016-08-04">Aug 04, 2016 - Thu</option>
-<option value="2016-08-05">Aug 05, 2016 - Fri</option>
-<option value="2016-08-08">Aug 08, 2016 - Mon</option>
-<option value="2016-08-09">Aug 09, 2016 - Tue</option>
-<option value="2016-08-10">Aug 10, 2016 - Wed</option>
-<option value="2016-08-11">Aug 11, 2016 - Thu</option>
+            <div class="halves">
+                <input type="text" name="ssn3" value="" placeholder="Last 4 digits of SSN" /> <select id="dobY" name="dobY">
+                    <option value="">
+                        Birth Year
+                    </option>
 
-	</select>
-	<p class="disclaimer">
-		<input type="checkbox" name="lm_agree" value="1" CHECKED />
-		<label for="agree">I certify that I am a U.S. Resident over the age of 18, I agree to the <span class="font2"><a href="javascript:{}" onclick="window.open('/econsent/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">E-consent</a></span>, <span class="font2"><a href="javascript:{}" onclick="window.open('/privacy/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">Privacy Policy</a></span> & <span class="font2"><a href="javascript:{}" onclick="window.open('/terms/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">Terms of Use</a></span> and that I may receive email offers from trusted associates.</label>
-	</p>
-	<!--#2"--><button type="submit" name="submit" class="btn-submit main-color-bg" onClick="return validateRepeatForm(2, 1)" >Submit </button>
-	<!--#3"--><button type="image" name="rEdit" class="btn-edit" id="verify" onClick="return validateRepeatForm(2, 0)">Edit/Verify Information</button>
-	<input type="hidden" name="affId" value="">
-	<input type="hidden" name="opt" value="">
-	<input type="hidden" name="subc1" value="">
-	<input type="hidden" name="subc2" value="">
-	<input type="hidden" name="subc3" value="">
-</div>
-<!--#4: closed form here--></form>
-<div class="info">
-	<!--#5-->
-	<div class="steps">
-		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 128">
-			<path class="icon-svg" d="M41.25,40.09h0a8.37,8.37,0,0,1,11.49,2.7L64.46,61.73a8.32,8.32,0,0,1,3.76-5.35h0A8.37,8.37,0,0,1,79,58.11a8.35,8.35,0,0,1,3.93-6.51h0a8.37,8.37,0,0,1,10.78,1.73,8.35,8.35,0,0,1,3.93-6.51h0c3.9-2.42,9.28-1.32,11.49,2.7l16.22,29.62c13.19,24.08-12.27,55-37.86,43L43.09,101.17a8.37,8.37,0,0,1-4-11.11c3.87-2.4,12.21-3.47,16.39-1.5l8.41,4L38.55,51.58a8.37,8.37,0,0,1,2.7-11.49h0Z"/><path class="icon-svg" d="M36.45,68.58A24.23,24.23,0,1,1,68.46,42"/><path class="icon-svg" d="M26.68,84.07A42.39,42.39,0,1,1,85.44,34.76"/>
-		</svg>
-		<div class="steps-copy">
-			<h3>1. Easy Short Form</h3>
-			<p>Complete our form online and we will search 100s of Lenders to locate the best match for you!</p>
-		</div>
-	</div>
-	<div class="steps">
-		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 128">
-			<polyline class="icon-svg" points="76.04 33.84 96.18 57.17 124.66 13.64"/><line class="icon-svg" x1="58.79" y1="36.04" x2="58.79" y2="43.72"/>
-			<line class="icon-svg" x1="58.79" y1="77.22" x2="58.79" y2="84.9"/>
-			<path class="icon-svg" d="M69.92,47.73A50.18,50.18,0,0,0,60,45.08c-17.25-1.94-19.47,15.44-1.1,15.39,17.85-.06,16.17,17.34-1.13,15.39a50.27,50.27,0,0,1-9.91-2.64"/>
-			<path class="icon-svg" d="M97.14,77.71v38.7a9.94,9.94,0,0,1-9.9,9.9h-57a9.93,9.93,0,0,1-9.9-9.9V11.59a9.93,9.93,0,0,1,9.9-9.9h57c4.27,0,11,1.42,10.76,9.71l-0.18,5.22M52.5,113.3H65M22,101.46h73M23.23,16.22h73"/>
-			</svg>
-		<div class="steps-copy">
-			<h3>2. Accept Loan</h3>
-			<p>Once matched, we send you to the Lender's signature page where you will agree to the repayment terms.</p>
-		</div>
-	</div>
-	<div class="steps">
-		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 128">
-			<polyline class="icon-svg" points="33.06 24.93 33.06 127.16 97.94 127.16 97.94 24.93"/>
-			<path class="icon-svg" d="M86.61,65c0-8.74-9.45-15.84-21.11-15.84S44.39,56.22,44.39,65,53.84,80.8,65.5,80.8,86.61,73.71,86.61,65h0Z"/><path class="icon-svg" d="M95.08,104.5A19.53,19.53,0,0,0,75.55,124"/>
-			<path class="icon-svg" d="M35.92,104.5A19.53,19.53,0,0,1,55.45,124"/>
-			<path class="icon-svg" d="M69.59,96.67a4.09,4.09,0,1,0-4.09,4.09,4.09,4.09,0,0,0,4.09-4.09h0Z"/>
-			<path class="icon-svg" d="M69.59,33.31A4.09,4.09,0,1,0,65.5,37.4a4.1,4.1,0,0,0,4.09-4.09h0Z"/>
-			<path class="icon-svg" d="M98.43,41.19h10.09a4.06,4.06,0,0,0,4-4v-8.6a4.07,4.07,0,0,0-4-4h-86a4.08,4.08,0,0,0-4,4v8.6a4.07,4.07,0,0,0,4,4H32.56"/>
-			<path class="icon-svg" d="M32.56,62.3H7.4a5.28,5.28,0,0,1-5.22-5.22v-51A5.24,5.24,0,0,1,7.4.84H123.6a5.28,5.28,0,0,1,5.22,5.22v51a5.32,5.32,0,0,1-5.22,5.22H98.43"/>
-		</svg>
-		<div class="steps-copy">
-			<h3>3. Get Your Cash</h3>
-			<p>Once approved, money will be automatically deposited to your bank account. It's that easy!</p>
-		</div>
-	</div>
-	<!--/#3-->
-	<h2>Your Online Payday Loan Center</h2>
-	<p><strong>Online-PayDay-Direct.net</strong> handles all your unexpected events. By completing our online form you can qualify for a loan from $100 to $1,000 with no credit required. Our simple online qualifications process helps thousands of people get cash they need online. <strong>Online-PayDay-Direct.net's</strong> large database of lenders offers the cash you need. Pay off the lender based on loan terms. Our online form only takes minutes to complete.</p>
-</div>
-<div class="finePrint">
-	<b>Important Note</b>: Payday loans or cash advances are provided for the purpose of assisting you with short term financing to resolve immediate cash needs and should not be considered a long term solution. All users should seek advice from the appropriate professional before entering into this type of loan.<br /><br />
-	<b>We Are Not Lenders or Brokers</b>. The operator of this website is not a lender, nor a broker, agent or representative to any lender. We do not make cash advances or credit decisions. Advertising on or through this website does not constitute an offer or solicitation to lend money to you. This website provides a service wherein we collect the information you submit to us and provide it to an independent network of companies, including lenders, who will secure the loan for you. All financial terms of the loan will be presented to you by the lender. For details, questions or concerns regarding your cash advance or payday loan, please contact your lender directly. Typically lenders will not perform credit checks with the three credit reporting bureaus: Experian, Equifax, or Trans Union. Credit checks or consumer reports through alternative providers may be obtained by some lenders.<br /><br />
-	<b>Limitations</b>. Not all lenders can provide you with up to $1,000 on your first advance. Often this is dependent upon the State in which you reside and the information you provide to us for the lender's review. Providing your information on this Website does not guarantee that you will be approved for a cash advance or loan. Cash transfer times may vary between lenders and may depend on your individual financial institution. In some circumstances faxing may be required. This service is not available in all states, and the states serviced by this Website may change from time to time without notice. This service does not constitute an offer or solicitation for payday loans where prohibited by law.<br /><br />
-	<b>No Endorsement</b>. The operator of this website is a marketer who is compensated for their services as described in our <a class="link" href="javascript:{}" onclick="window.open('/disclosure/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">marketing disclosure</a> and does not endorse or recommend any service or product advertised on or through this site.
-</div>
-<footer>
-	<a href="javascript:{}" onClick="window.open('/terms/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Terms</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-	<a href="javascript:{}" onClick="window.open('/privacy/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-	<a href="javascript:{}" onClick="window.open('/econsent/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">E-consent</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-	<a href="javascript:{}" onClick="window.open('/unsub/', 'footer', 'width=650,height=650,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Unsub</a>
-</footer>
+                    <option value="1998">
+                        1998
+                    </option>
+
+                    <option value="1997">
+                        1997
+                    </option>
+
+                    <option value="1996">
+                        1996
+                    </option>
+
+                    <option value="1995">
+                        1995
+                    </option>
+
+                    <option value="1994">
+                        1994
+                    </option>
+
+                    <option value="1993">
+                        1993
+                    </option>
+
+                    <option value="1992">
+                        1992
+                    </option>
+
+                    <option value="1991">
+                        1991
+                    </option>
+
+                    <option value="1990">
+                        1990
+                    </option>
+
+                    <option value="1989">
+                        1989
+                    </option>
+
+                    <option value="1988">
+                        1988
+                    </option>
+
+                    <option value="1987">
+                        1987
+                    </option>
+
+                    <option value="1986">
+                        1986
+                    </option>
+
+                    <option value="1985">
+                        1985
+                    </option>
+
+                    <option value="1984">
+                        1984
+                    </option>
+
+                    <option value="1983">
+                        1983
+                    </option>
+
+                    <option value="1982">
+                        1982
+                    </option>
+
+                    <option value="1981">
+                        1981
+                    </option>
+
+                    <option value="1980">
+                        1980
+                    </option>
+
+                    <option value="1979">
+                        1979
+                    </option>
+
+                    <option value="1978">
+                        1978
+                    </option>
+
+                    <option value="1977">
+                        1977
+                    </option>
+
+                    <option value="1976">
+                        1976
+                    </option>
+
+                    <option value="1975">
+                        1975
+                    </option>
+
+                    <option value="1974">
+                        1974
+                    </option>
+
+                    <option value="1973">
+                        1973
+                    </option>
+
+                    <option value="1972">
+                        1972
+                    </option>
+
+                    <option value="1971">
+                        1971
+                    </option>
+
+                    <option value="1970">
+                        1970
+                    </option>
+
+                    <option value="1969">
+                        1969
+                    </option>
+
+                    <option value="1968">
+                        1968
+                    </option>
+
+                    <option value="1967">
+                        1967
+                    </option>
+
+                    <option value="1966">
+                        1966
+                    </option>
+
+                    <option value="1965">
+                        1965
+                    </option>
+
+                    <option value="1964">
+                        1964
+                    </option>
+
+                    <option value="1963">
+                        1963
+                    </option>
+
+                    <option value="1962">
+                        1962
+                    </option>
+
+                    <option value="1961">
+                        1961
+                    </option>
+
+                    <option value="1960">
+                        1960
+                    </option>
+
+                    <option value="1959">
+                        1959
+                    </option>
+
+                    <option value="1958">
+                        1958
+                    </option>
+
+                    <option value="1957">
+                        1957
+                    </option>
+
+                    <option value="1956">
+                        1956
+                    </option>
+
+                    <option value="1955">
+                        1955
+                    </option>
+
+                    <option value="1954">
+                        1954
+                    </option>
+
+                    <option value="1953">
+                        1953
+                    </option>
+
+                    <option value="1952">
+                        1952
+                    </option>
+
+                    <option value="1951">
+                        1951
+                    </option>
+
+                    <option value="1950">
+                        1950
+                    </option>
+
+                    <option value="1949">
+                        1949
+                    </option>
+
+                    <option value="1948">
+                        1948
+                    </option>
+
+                    <option value="1947">
+                        1947
+                    </option>
+
+                    <option value="1946">
+                        1946
+                    </option>
+
+                    <option value="1945">
+                        1945
+                    </option>
+
+                    <option value="1944">
+                        1944
+                    </option>
+
+                    <option value="1943">
+                        1943
+                    </option>
+
+                    <option value="1942">
+                        1942
+                    </option>
+
+                    <option value="1941">
+                        1941
+                    </option>
+
+                    <option value="1940">
+                        1940
+                    </option>
+
+                    <option value="1939">
+                        1939
+                    </option>
+
+                    <option value="1938">
+                        1938
+                    </option>
+
+                    <option value="1937">
+                        1937
+                    </option>
+
+                    <option value="1936">
+                        1936
+                    </option>
+
+                    <option value="1935">
+                        1935
+                    </option>
+
+                    <option value="1934">
+                        1934
+                    </option>
+
+                    <option value="1933">
+                        1933
+                    </option>
+
+                    <option value="1932">
+                        1932
+                    </option>
+
+                    <option value="1931">
+                        1931
+                    </option>
+                </select>
+            </div><select id="amt" name="amt">
+                <option value="">
+                    Desired Loan Amount
+                </option>
+
+                <option value="100">
+                    $100
+                </option>
+
+                <option value="200">
+                    $200
+                </option>
+
+                <option value="300" selected="selected">
+                    $300
+                </option>
+
+                <option value="400">
+                    $400
+                </option>
+
+                <option value="500">
+                    $500+
+                </option>
+            </select> <select id="pay_period" name="pay_period">
+                <option value="">
+                    Pay frequency
+                </option>
+
+                <option value="2">
+                    Weekly
+                </option>
+
+                <option value="4" selected="selected">
+                    Every Other Week
+                </option>
+
+                <option value="8">
+                    Monthly
+                </option>
+
+                <option value="16">
+                    Twice-Monthly
+                </option>
+            </select> <select id="next_pay" name="next_pay">
+                <option value="">
+                    Date of 1st payday
+                </option>
+
+                <option value="2016-06-13">
+                    Jun 13, 2016 - Mon
+                </option>
+
+                <option value="2016-06-14">
+                    Jun 14, 2016 - Tue
+                </option>
+
+                <option value="2016-06-15">
+                    Jun 15, 2016 - Wed
+                </option>
+
+                <option value="2016-06-16">
+                    Jun 16, 2016 - Thu
+                </option>
+
+                <option value="2016-06-17">
+                    Jun 17, 2016 - Fri
+                </option>
+
+                <option value="2016-06-20">
+                    Jun 20, 2016 - Mon
+                </option>
+
+                <option value="2016-06-21">
+                    Jun 21, 2016 - Tue
+                </option>
+
+                <option value="2016-06-22">
+                    Jun 22, 2016 - Wed
+                </option>
+
+                <option value="2016-06-23">
+                    Jun 23, 2016 - Thu
+                </option>
+
+                <option value="2016-06-24">
+                    Jun 24, 2016 - Fri
+                </option>
+
+                <option value="2016-06-27">
+                    Jun 27, 2016 - Mon
+                </option>
+
+                <option value="2016-06-28">
+                    Jun 28, 2016 - Tue
+                </option>
+
+                <option value="2016-06-29">
+                    Jun 29, 2016 - Wed
+                </option>
+
+                <option value="2016-06-30">
+                    Jun 30, 2016 - Thu
+                </option>
+
+                <option value="2016-07-01">
+                    Jul 01, 2016 - Fri
+                </option>
+
+                <option value="2016-07-05">
+                    Jul 05, 2016 - Tue
+                </option>
+
+                <option value="2016-07-06">
+                    Jul 06, 2016 - Wed
+                </option>
+
+                <option value="2016-07-07">
+                    Jul 07, 2016 - Thu
+                </option>
+
+                <option value="2016-07-08">
+                    Jul 08, 2016 - Fri
+                </option>
+
+                <option value="2016-07-11">
+                    Jul 11, 2016 - Mon
+                </option>
+            </select> <select id="next_pay2" name="next_pay2">
+                <option value="">
+                    Date of 2nd payday
+                </option>
+
+                <option value="2016-06-20">
+                    Jun 20, 2016 - Mon
+                </option>
+
+                <option value="2016-06-21">
+                    Jun 21, 2016 - Tue
+                </option>
+
+                <option value="2016-06-22">
+                    Jun 22, 2016 - Wed
+                </option>
+
+                <option value="2016-06-23">
+                    Jun 23, 2016 - Thu
+                </option>
+
+                <option value="2016-06-24">
+                    Jun 24, 2016 - Fri
+                </option>
+
+                <option value="2016-06-27">
+                    Jun 27, 2016 - Mon
+                </option>
+
+                <option value="2016-06-28">
+                    Jun 28, 2016 - Tue
+                </option>
+
+                <option value="2016-06-29">
+                    Jun 29, 2016 - Wed
+                </option>
+
+                <option value="2016-06-30">
+                    Jun 30, 2016 - Thu
+                </option>
+
+                <option value="2016-07-01">
+                    Jul 01, 2016 - Fri
+                </option>
+
+                <option value="2016-07-05">
+                    Jul 05, 2016 - Tue
+                </option>
+
+                <option value="2016-07-06">
+                    Jul 06, 2016 - Wed
+                </option>
+
+                <option value="2016-07-07">
+                    Jul 07, 2016 - Thu
+                </option>
+
+                <option value="2016-07-08">
+                    Jul 08, 2016 - Fri
+                </option>
+
+                <option value="2016-07-11">
+                    Jul 11, 2016 - Mon
+                </option>
+
+                <option value="2016-07-12">
+                    Jul 12, 2016 - Tue
+                </option>
+
+                <option value="2016-07-13">
+                    Jul 13, 2016 - Wed
+                </option>
+
+                <option value="2016-07-14">
+                    Jul 14, 2016 - Thu
+                </option>
+
+                <option value="2016-07-15">
+                    Jul 15, 2016 - Fri
+                </option>
+
+                <option value="2016-07-18">
+                    Jul 18, 2016 - Mon
+                </option>
+
+                <option value="2016-07-19">
+                    Jul 19, 2016 - Tue
+                </option>
+
+                <option value="2016-07-20">
+                    Jul 20, 2016 - Wed
+                </option>
+
+                <option value="2016-07-21">
+                    Jul 21, 2016 - Thu
+                </option>
+
+                <option value="2016-07-22">
+                    Jul 22, 2016 - Fri
+                </option>
+
+                <option value="2016-07-25">
+                    Jul 25, 2016 - Mon
+                </option>
+
+                <option value="2016-07-26">
+                    Jul 26, 2016 - Tue
+                </option>
+
+                <option value="2016-07-27">
+                    Jul 27, 2016 - Wed
+                </option>
+
+                <option value="2016-07-28">
+                    Jul 28, 2016 - Thu
+                </option>
+
+                <option value="2016-07-29">
+                    Jul 29, 2016 - Fri
+                </option>
+
+                <option value="2016-08-01">
+                    Aug 01, 2016 - Mon
+                </option>
+
+                <option value="2016-08-02">
+                    Aug 02, 2016 - Tue
+                </option>
+
+                <option value="2016-08-03">
+                    Aug 03, 2016 - Wed
+                </option>
+
+                <option value="2016-08-04">
+                    Aug 04, 2016 - Thu
+                </option>
+
+                <option value="2016-08-05">
+                    Aug 05, 2016 - Fri
+                </option>
+
+                <option value="2016-08-08">
+                    Aug 08, 2016 - Mon
+                </option>
+
+                <option value="2016-08-09">
+                    Aug 09, 2016 - Tue
+                </option>
+
+                <option value="2016-08-10">
+                    Aug 10, 2016 - Wed
+                </option>
+
+                <option value="2016-08-11">
+                    Aug 11, 2016 - Thu
+                </option>
+            </select>
+
+            <p class="disclaimer"><input type="checkbox" name="lm_agree" value="1" checked="checked" /> <label for="agree">I certify that I am a U.S. Resident over the age of 18, I agree to the <span class="font2"><a href="javascript:{}" onclick="window.open('/econsent/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">E-consent</a></span>, <span class="font2"><a href="javascript:{}" onclick="window.open('/privacy/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">Privacy Policy</a></span> & <span class="font2"><a href="javascript:{}" onclick="window.open('/terms/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">Terms of Use</a></span> and that I may receive email offers from trusted associates.</label></p><!--#2"--><button type="submit" name="submit" class="btn-submit main-color-bg" onclick="return validateRepeatForm(2, 1)">Submit</button> <!--#3"--><button type="image" name="rEdit" class="btn-edit" id="verify" onclick="return validateRepeatForm(2, 0)">Edit/Verify Information</button> <input type="hidden" name="affId" value="" /><input type="hidden" name="opt" value="" /><input type="hidden" name="subc1" value="" /><input type="hidden" name="subc2" value="" /><input type="hidden" name="subc3" value="" />
+        </form>
+
+    <div class="info">
+        <!--#5-->
+
+        <div class="steps">
+            <div class="steps-copy">
+                <h3>1. Easy Short Form</h3>
+
+                <p>Complete our form online and we will search 100s of Lenders to locate the best match for you!</p>
+            </div>
+        </div>
+
+        <div class="steps">
+            <div class="steps-copy">
+                <h3>2. Accept Loan</h3>
+
+                <p>Once matched, we send you to the Lender's signature page where you will agree to the repayment terms.</p>
+            </div>
+        </div>
+
+        <div class="steps">
+            <div class="steps-copy">
+                <h3>3. Get Your Cash</h3>
+
+                <p>Once approved, money will be automatically deposited to your bank account. It's that easy!</p>
+            </div>
+        </div><!--/#3-->
+
+        <h2>Your Online Payday Loan Center</h2>
+
+        <p><strong>Online-PayDay-Direct.net</strong> handles all your unexpected events. By completing our online form you can qualify for a loan from $100 to $1,000 with no credit required. Our simple online qualifications process helps thousands of people get cash they need online. <strong>Online-PayDay-Direct.net's</strong> large database of lenders offers the cash you need. Pay off the lender based on loan terms. Our online form only takes minutes to complete.</p>
+    </div>
+
+    <div class="finePrint">
+        <b>Important Note</b>: Payday loans or cash advances are provided for the purpose of assisting you with short term financing to resolve immediate cash needs and should not be considered a long term solution. All users should seek advice from the appropriate professional before entering into this type of loan.<br />
+        <br />
+        <b>We Are Not Lenders or Brokers</b>. The operator of this website is not a lender, nor a broker, agent or representative to any lender. We do not make cash advances or credit decisions. Advertising on or through this website does not constitute an offer or solicitation to lend money to you. This website provides a service wherein we collect the information you submit to us and provide it to an independent network of companies, including lenders, who will secure the loan for you. All financial terms of the loan will be presented to you by the lender. For details, questions or concerns regarding your cash advance or payday loan, please contact your lender directly. Typically lenders will not perform credit checks with the three credit reporting bureaus: Experian, Equifax, or Trans Union. Credit checks or consumer reports through alternative providers may be obtained by some lenders.<br />
+        <br />
+        <b>Limitations</b>. Not all lenders can provide you with up to $1,000 on your first advance. Often this is dependent upon the State in which you reside and the information you provide to us for the lender's review. Providing your information on this Website does not guarantee that you will be approved for a cash advance or loan. Cash transfer times may vary between lenders and may depend on your individual financial institution. In some circumstances faxing may be required. This service is not available in all states, and the states serviced by this Website may change from time to time without notice. This service does not constitute an offer or solicitation for payday loans where prohibited by law.<br />
+        <br />
+        <b>No Endorsement</b>. The operator of this website is a marketer who is compensated for their services as described in our <a class="link" href="javascript:{}" onclick="window.open('/disclosure/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no');return false">marketing disclosure</a> and does not endorse or recommend any service or product advertised on or through this site.
+    </div>
+
+    <footer>
+        <a href="javascript:{}" onclick="window.open('/terms/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Terms</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="javascript:{}" onclick="window.open('/privacy/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="javascript:{}" onclick="window.open('/econsent/', 'footer', 'width=500,height=400,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">E-consent</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="javascript:{}" onclick="window.open('/unsub/', 'footer', 'width=650,height=650,scrollbars=yes,status=no,menubars=no'); return false" rel="nofollow">Unsub</a>
+    </footer>
 </body>
 </html>

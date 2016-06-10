@@ -47,7 +47,7 @@ header{
 	position: relative;
 	text-transform: uppercase;
 	background: #333 !important; /* Old browsers */
-	padding: 40px 0;
+	padding: 20px 0;
 	text-align: center;
 }
 
@@ -106,7 +106,7 @@ header + header{
 }
 
 form{
-	padding: 30px;
+	padding: 20px;
 	background: #efefef;
 }
 
@@ -135,8 +135,21 @@ select {
 	display: flex;
 }
 
+
+.thirds *:nth-child(2) {
+	margin-left: 5px;
+	margin-right: 5px;
+}
 .halves {
 	display: flex;
+}
+
+.halves *{
+	width: 100%;
+}
+
+.halves *:nth-child(2) {
+	margin-left: 5px;
 }
 
 .thirds select{
@@ -330,8 +343,12 @@ Decline
 Page4 and Page5
 
 =======================================*/
+
+.page4 header{
+	padding: 0;
+}
 .page4 .heading{
-	padding: 20px 20px;
+	padding: 10px;
 	text-transform: none;
 }
 
@@ -341,6 +358,11 @@ Page4 and Page5
 
 .page4 .heading p {
 	margin: 10px;
+}
+
+.page4 select,
+.page4 input[type="text"] {
+	height: 30px;
 }
 
 .secure{
