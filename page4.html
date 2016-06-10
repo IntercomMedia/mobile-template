@@ -161,15 +161,18 @@
             switch(orientation) {
                 case 0:
                 /* If in portrait mode, sets the body's class attribute to portrait. Consequently, all style definitions matching the body[class="portrait"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
-                    document.body.setAttribute("class","portrait");
+                    document.body.classList.add("portrait");
+                    document.body.classList.remove("landscape");
                     break; 
                 case 90:
                 /* If in landscape mode with the screen turned to the left, sets the body's class attribute to landscapeLeft. In this case, all style definitions matching the body[class="landscapeLeft"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
-                    document.body.setAttribute("class","landscape");
+                    document.body.classList.add("landscape");
+                    document.body.classList.remove("portrait");
                     break;
                 case -90: 
                     /* If in landscape mode with the screen turned to the right, sets the body's class attribute to landscapeRight. Here, all style definitions matching the body[class="landscapeRight"] declaration in the iPhoneOrientation.css file will be selected and used to style "Handling iPhone or iPod touch Orientation Events". */
-                    document.body.setAttribute("class","landscape");
+                    document.body.classList.add("landscape");
+                    document.body.classList.remove("portrait");
                     break;
             }
         }
